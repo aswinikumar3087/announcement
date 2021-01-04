@@ -21,8 +21,9 @@ package com.mindtree.announcement.constant;
  */
 public class AnnouncementConstant {
 
-    public static final String CREATE_ANNOUNCEMENT_ENDPOINT = "/createAnnouncements";
-    public static final String RETRIEVE_ANNOUNCEMENT_ENDPOINT = "/retriveAnnouncements";
+    public static final String ANNOUNCEMENT_BASEPATH = "/announcement";
+    public static final String CREATE_ANNOUNCEMENT_ENDPOINT = ANNOUNCEMENT_BASEPATH + "/createAnnouncements";
+    public static final String RETRIEVE_ANNOUNCEMENT_ENDPOINT = ANNOUNCEMENT_BASEPATH + "/retriveAnnouncements";
     public static final int NUMERIC_ONE = 1;
 
 }

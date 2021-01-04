@@ -1,17 +1,3 @@
-/**
- * (C) Koninklijke Philips Electronics N.V. 2019
- * <p>
- * All rights are reserved. Reproduction or transmission in whole or in part,
- * in  any form or by any means, electronic, mechanical or otherwise, is
- * prohibited without the prior written permission of the copyright owner.
- *
- * @author Aswini Kumar Parida
- * <p>
- * Filename   : AnnouncementResponse.java
- * <p>
- * Description : The class AnnouncementResponse.java.
- * @version 1.0
- */
 package com.mindtree.announcement.models.Response;
 
 import java.util.List;
@@ -23,17 +9,17 @@ import java.util.List;
  */
 public class AnnouncementResponse {
 
-    private List<Announcements> list;
+    private List<Announcements> announcementList;
     private long totalNumberOfRecords;
 
     private int pageNumber;
 
-    public List<Announcements> getList() {
-        return list;
+    public List<Announcements> getAnnouncementList() {
+        return announcementList;
     }
 
-    public void setList(List<Announcements> list) {
-        this.list = list;
+    public void setAnnouncementList(List<Announcements> announcementList) {
+        this.announcementList = announcementList;
     }
 
     public long getTotalNumberOfRecords() {

@@ -23,7 +23,8 @@ public class AnnouncementCreationService {
         final AnnouncementEntity announcementEntity = new AnnouncementEntity();
         announcementEntity.setAnnouncementTitle(createAnnouncementRequest.getAnnouncementTitle());
         announcementEntity.setAnnouncementDesc(createAnnouncementRequest.getAnnouncementDescription());
-        announcementEntity.setAnnouncementDate(Timestamp.valueOf(createAnnouncementRequest.getAnnounceMentDate()));
+        //announcementEntity.setAnnouncementDate(Timestamp.valueOf(createAnnouncementRequest.getAnnouncementDate()));
+        announcementEntity.setAnnouncementDate(createAnnouncementRequest.getAnnouncementDate());
         announcementRepository.save(announcementEntity);
     }
 

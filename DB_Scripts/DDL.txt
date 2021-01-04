@@ -1,0 +1,16 @@
+CREATE SCHEMA IF NOT EXISTS announcement;
+
+
+CREATE TABLE IF NOT EXISTS announcement.announcement(
+    id integer PRIMARY KEY,
+	announcementtitle text,
+    announcementdesc text,
+	announcementdate text
+
+);
+
+CREATE SEQUENCE announcement_seq
+ START WITH     1
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;

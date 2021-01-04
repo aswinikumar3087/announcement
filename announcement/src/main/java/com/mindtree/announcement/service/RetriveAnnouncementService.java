@@ -38,7 +38,7 @@ public class RetriveAnnouncementService {
             final List<Announcements> announcementsList = new ArrayList<>();
             pagedAnnouncementEntityList.getContent().stream().forEach(announcementEntity ->
                     populateAnnounceMentResponseObject(announcementsList,announcementEntity));
-            announcementResponse.setList(announcementsList);
+            announcementResponse.setAnnouncementList(announcementsList);
             announcementResponse.setPageNumber(currentPageNumber);
             announcementResponse.setTotalNumberOfRecords(totalNumberOfRecords);
         }

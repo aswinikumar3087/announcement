@@ -1,20 +1,7 @@
-/**
- * (C) Koninklijke Philips Electronics N.V. 2019
- * <p>
- * All rights are reserved. Reproduction or transmission in whole or in part,
- * in  any form or by any means, electronic, mechanical or otherwise, is
- * prohibited without the prior written permission of the copyright owner.
- *
- * @author Aswini Kumar Parida
- * <p>
- * Filename   : CreateAnnouncementRequest.java
- * <p>
- * Description : The class CreateAnnouncementRequest.java.
- * @version 1.0
- */
 package com.mindtree.announcement.models.Request;
 
 import java.io.Serializable;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @author Aswini Kumar Parida
@@ -24,9 +11,12 @@ import java.io.Serializable;
 public class CreateAnnouncementRequest implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @NotEmpty(message = "Announcement title cannot be empty.")
     private String announcementTitle;
+    @NotEmpty(message = "Announcement Description cancnot be empty.")
     private String announcementDescription;
-    private String announceMentDate;
+    @NotEmpty(message = "Announcement date cannot be empty.")
+    private String announcementDate;
 
     public String getAnnouncementTitle() {
         return announcementTitle;
@@ -44,12 +34,12 @@ public class CreateAnnouncementRequest implements Serializable {
         this.announcementDescription = announcementDescription;
     }
 
-    public String getAnnounceMentDate() {
-        return announceMentDate;
+    public String getAnnouncementDate() {
+        return announcementDate;
     }
 
-    public void setAnnounceMentDate(String announceMentDate) {
-        this.announceMentDate = announceMentDate;
+    public void setAnnouncementDate(String announcementDate) {
+        this.announcementDate = announcementDate;
     }
 
     @Override
@@ -57,7 +47,7 @@ public class CreateAnnouncementRequest implements Serializable {
         return "CreateAnnouncementRequest{" +
                 "announcementTitle='" + announcementTitle + '\'' +
                 ", announcementDescription='" + announcementDescription + '\'' +
-                ", announceMentDate='" + announceMentDate + '\'' +
+                ", announceMentDate='" + announcementDate + '\'' +
                 '}';
     }
 }

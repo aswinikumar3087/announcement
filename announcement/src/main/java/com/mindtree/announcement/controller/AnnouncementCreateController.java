@@ -1,17 +1,3 @@
-/**
- * (C) Koninklijke Philips Electronics N.V. 2019
- * <p>
- * All rights are reserved. Reproduction or transmission in whole or in part,
- * in  any form or by any means, electronic, mechanical or otherwise, is
- * prohibited without the prior written permission of the copyright owner.
- *
- * @author Aswini Kumar Parida
- * <p>
- * Filename   : AnnouncementCreateController.java
- * <p>
- * Description : The class AnnouncementCreateController.java.
- * @version 1.0
- */
 package com.mindtree.announcement.controller;
 
 import com.mindtree.announcement.constant.AnnouncementConstant;

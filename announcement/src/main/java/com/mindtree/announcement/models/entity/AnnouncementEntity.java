@@ -1,33 +1,26 @@
-/**
- * (C) Koninklijke Philips Electronics N.V. 2019
- * <p>
- * All rights are reserved. Reproduction or transmission in whole or in part,
- * in  any form or by any means, electronic, mechanical or otherwise, is
- * prohibited without the prior written permission of the copyright owner.
- *
- * @author Aswini Kumar Parida
- * <p>
- * Filename   : AnnouncementEntity.java
- * <p>
- * Description : The class AnnouncementEntity.java.
- * @version 1.0
- */
 package com.mindtree.announcement.models.entity;
 
-
+import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 /**
  * @author Aswini Kumar Parida
  * @version 1.0
  * @since 12/14/2020
  */
-public class AnnouncementEntity {
+@Entity
+@Table(name = "announcement", schema = "announcement")
+public class AnnouncementEntity implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
     @Column(name = "announcementtitle")
     private String announcementTitle;
@@ -36,7 +29,7 @@ public class AnnouncementEntity {
     private String announcementDesc;
 
     @Column(name = "announcementdate")
-    private Timestamp announcementDate;
+    private String announcementDate;
 
     public String getAnnouncementTitle() {
         return announcementTitle;
@@ -54,11 +47,11 @@ public class AnnouncementEntity {
         this.announcementDesc = announcementDesc;
     }
 
-    public Timestamp getAnnouncementDate() {
+    public String getAnnouncementDate() {
         return announcementDate;
     }
 
-    public void setAnnouncementDate(Timestamp announcementDate) {
+    public void setAnnouncementDate(String announcementDate) {
         this.announcementDate = announcementDate;
     }
 }

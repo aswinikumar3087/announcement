@@ -1,0 +1,181 @@
+swagger: '2.0'
+info:
+  title: Announcement Microservice
+  description: >-
+    The Announcement microservice has the following responsibilities to play
+      #
+    One, it is responsible for creating Announcements. 
+  
+    Two, it is responsible for getting annoucenments with pagination.
+      #
+  termsOfService: www.mindtree.com
+  contact:
+    name: Announcement Services
+    email: "paridaaswini087@gmail.com"
+  version: 1.0.0
+tags:
+  - name: Announcement service
+schemes:
+  - https
+paths:
+  
+  '/<Announcement create Announcement Basepath>/announcement/createAnnouncements':
+    post:
+      tags: 
+        - Announcement service
+      summary: >-
+        Generates an announcement.
+      description: >-
+        This API generates an announcement for businessrequirement with announcement title, description and date. 
+        
+          create Announcement Basepath: /announcement
+      operationId: announcement
+      
+      produces:
+        - application/json
+      parameters:
+       
+         
+        - in: body
+          name: CreateAnnouncementRequest
+          description: Request body for creating announcemnt.
+          required: true
+          schema:
+            $ref: '#/definitions/CreateAnnouncementRequest'
+      responses:
+        '201':
+          description: Created.
+          
+        '400':
+          description: Bad request/ Wrong parameters supplied/ Validation error
+          schema:
+            $ref: '#/definitions/400AnnouncementServiceError' 
+        
+        '404':
+          description: >-
+            Resource or URI not found.
+       
+        
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/500AnnouncementServiceError'
+      security:
+        - IAM_Authentication:
+            - '?.?.iotcloud'
+  
+  '/<Announcement Service Get announcement details Basepath>/announcement/retriveAnnouncements':
+    get:
+      tags:
+        - Announcement service
+      summary: >-
+        Gets the announcement details by pagination.
+      description: >-
+        This api supports retrieving the annoucnement details such as announcementtitle, announcementDescription and date.
+        
+          announcement Basepath: /announcement
+      operationId: annoucnementDetails
+      
+      produces:
+        - application/json
+     
+   
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/AnnouncementResponseDetails'
+      
+          
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/500AnnouncementServiceError'
+      security:
+        - IAM_Authentication:
+            - '?.?.iotcloud'
+            
+  
+  
+
+securityDefinitions:
+  IAM_Authentication:
+    type: oauth2
+    authorizationUrl: >-
+       https://iam-client-test.eu-west.philips-healthsuite.com/authorize/oauth2/introspect
+    flow: implicit
+    scopes:
+      '?.?.iotcloud': IoT Cloud Scope Permission (Device or Cloud Scope)
+  api_key:
+    type: apiKey
+    name: token
+    in: header
+definitions:
+
+  
+  AnnouncementResponseDetails:
+    type: array
+    items:
+      type: object
+      required: 
+      - announcementTitle
+      - announcementDescription
+      - announcementDate
+      
+      properties:
+        announcementTitle :
+          type: string
+          example: 'Title1'  
+        announcementDescription :
+          type: string
+          example: 'Description of announcement.'   
+        announcementDate :
+          type: string
+          example: 24/01/2021
+  
+            
+    title: AnnouncementResponseDetails
+
+  CreateAnnouncementRequest:
+    type: object
+    required: 
+      - announcementTitle
+      - announcementDescription
+      - announcementDate
+    properties:
+      
+      announcementTitle:
+        type: string
+        example: annoucementTitle
+      
+      announcementDescription:
+        type: string
+        example: MR
+     
+      announcementDate:
+        type: string
+        example: "28/12/2021"
+       
+        
+    title: CreateAnnouncementRequest
+
+  
+
+  500AnnouncementServiceError:
+    properties:
+      errorCode:
+        type: string
+        example: Error specific custom error code
+      errorMessage:
+        type: string
+        example: 'Announcement Service: Error specific custom message'
+  
+  400AnnouncementServiceError:
+    properties:
+      errorCode:
+        type: string
+        example: Error specific custom error code
+      errorMessage:
+        type: string
+        example: 'Announcement Service: Error specific custom message'
+  
